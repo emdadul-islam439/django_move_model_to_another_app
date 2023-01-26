@@ -1,6 +1,6 @@
 from django.db import models
 
-from catalog_app.models import Product
+from product_app.models import Product
 
 # Create your models here.
 class Sale(models.Model):
