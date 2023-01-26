@@ -12,9 +12,14 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AlterField(
-            model_name='sale',
-            name='product',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='product_app.product'),
-        ),
+        migrations.SeparateDatabaseAndState(
+            state_operations=[
+                migrations.AlterField(
+                    model_name='sale',
+                    name='product',
+                    field=models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='product_app.product'),
+                ),
+            ],
+            database_operations=[]
+        )
     ]
