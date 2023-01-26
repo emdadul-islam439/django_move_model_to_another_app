@@ -11,7 +11,17 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.DeleteModel(
-            name='Product',
-        ),
+        migrations.SeparateDatabaseAndState(
+            state_operations=[
+                migrations.DeleteModel(
+                    name='Product',
+                ),
+            ],
+            database_operations=[
+                migrations.AlterModelTable(
+                    name='Product',
+                    table='product_app_product',
+                ),
+            ],
+        )
     ]

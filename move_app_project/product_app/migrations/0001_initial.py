@@ -13,12 +13,17 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.CreateModel(
-            name='Product',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(db_index=True, max_length=100)),
-                ('category', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='catalog_app.category')),
+        migrations.SeparateDatabaseAndState(
+            state_operations=[
+                migrations.CreateModel(
+                    name='Product',
+                    fields=[
+                        ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                        ('name', models.CharField(db_index=True, max_length=100)),
+                        ('category', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='catalog_app.category')),
+                    ],
+                ),
             ],
-        ),
+            database_operations=[],
+        )
     ]
